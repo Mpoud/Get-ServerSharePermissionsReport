@@ -31,3 +31,17 @@ Another reminder that Windows shares that end in a dollar sign ‘$’ mean the 
 # Get-FolderPermissionsReport
 This script is a modified version of the ServerSharePermissionsReport script, except it does not search for computers in AD but you supply a starting folder. Then it will pull the NTFS Access Control List (ACL) permissions of folders and subfolders (if needed).
 Also it is possible to save the XML export to use for later purpose.
+
+## Running the script
+
+Here’s an example of using this script:
+ 
+    Get-FolderPermissionsReport.ps1 –Folder e:\shares\data -FolderDepth 2
+ 
+Note that the `–FolderDepth` option is not mandatory, the script will search recursive to 999 folders. Or you can supply 0 to disable recursive search.
+
+By default this script will produce a HTML file in the same directory where you ran it called ‘NTFS_ACL_Report.html’.  That’s what you want for your analysis. You can change this default file name using the `–HTMLFile` option.
+
+Note that all errors are not necessarily handled so if PowerShell spits out any error messages it’s likely still fine.  Allow the script to continue running.  As expected it also can’t pull permissions for things you don’t have admin rights to.
+
+Like with all PowerShell cmdlets you can run `Get-Help Get-FolderPermissionsReport.ps1` for the built-in documentation.
