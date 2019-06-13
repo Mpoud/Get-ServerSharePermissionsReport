@@ -27,3 +27,7 @@ Another reminder that Windows shares that end in a dollar sign ‘$’ mean the 
 * DriveLetter$: This is a shared root partition or volume that is displayed as the drive letter name appended with the '$' (e.g. C$, D$)
 * ADMIN$: This is a resource that is used during remote administration of a computer (e.g., RDP)
 * IPC$: This is a resource that shares named pipes for communication between programs (i.e., client and server); it is maintained by the Server service and uses InterProcess Communication (IPC) via Remote Procedure Calls (RPC)
+
+# Get-FolderPermissionsReport
+This script is a modified version of the ShareFolderPermissionsReport script, except it does not search for computers in AD but you supply a starting folder. Then it will pull the NTFS Access Control List (ACL) permissions of folders and subfolders (if needed).
+Also it is possible to save the XML export to use for later purpose.
